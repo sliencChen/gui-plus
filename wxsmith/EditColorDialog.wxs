@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxDialog" name="EditColorDialog">
+		<title>编辑颜色</title>
+		<centered>1</centered>
+		<id_arg>0</id_arg>
+		<style>wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER|wxMAXIMIZE_BOX|wxMINIMIZE_BOX</style>
+		<object class="wxBoxSizer" variable="BoxSizer1" member="no">
+			<orient>wxVERTICAL</orient>
+			<object class="sizeritem">
+				<object class="wxBoxSizer" variable="BoxSizer2" member="no">
+					<object class="sizeritem">
+						<object class="wxBoxSizer" variable="BoxSizer3" member="no">
+							<orient>wxVERTICAL</orient>
+							<object class="sizeritem">
+								<object class="wxBoxSizer" variable="BoxSizer4" member="no">
+									<object class="sizeritem">
+										<object class="wxSearchCtrl" name="ID_SEARCHCTRL1" variable="m_SearchCtrl1" member="yes">
+											<size>201,27</size>
+											<style>wxTE_PROCESS_ENTER</style>
+										</object>
+										<flag>wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxButton" name="IDC_COLOR_NEW" variable="m_NewColorButton" member="yes">
+											<label>新建</label>
+											<size>50,27</size>
+										</object>
+										<flag>wxEXPAND</flag>
+										<border>5</border>
+									</object>
+									<object class="sizeritem">
+										<object class="wxButton" name="IDC_COLOR_DEL" variable="m_DeleteColorButton" member="yes">
+											<label>删除</label>
+											<size>50,27</size>
+										</object>
+										<flag>wxEXPAND</flag>
+										<border>5</border>
+									</object>
+								</object>
+								<flag>wxBOTTOM|wxEXPAND</flag>
+								<border>2</border>
+							</object>
+							<object class="sizeritem">
+								<object class="Custom" name="IDC_COLOR_LIST" subclass="ColorListBox" variable="m_ColorListBox" member="yes">
+									<creating_code>$(THIS) = new $(CLASS)($(PARENT), $(ID));</creating_code>
+									<include_file>colorlistbox.h</include_file>
+									<local_include>1</local_include>
+									<style></style>
+								</object>
+								<flag>wxEXPAND</flag>
+								<border>5</border>
+								<option>1</option>
+							</object>
+						</object>
+						<flag>wxALL|wxEXPAND</flag>
+						<border>5</border>
+						<option>1</option>
+					</object>
+					<object class="sizeritem">
+						<object class="wxStaticBoxSizer" variable="StaticBoxSizer1" member="no">
+							<label>颜色</label>
+							<orient>wxVERTICAL</orient>
+							<object class="sizeritem">
+								<object class="wxStaticText" name="IDC_SHOW_COLOR_STATIC" variable="m_ShowColorStatic" member="yes">
+									<label></label>
+									<bg>wxSYS_COLOUR_WINDOW</bg>
+									<minsize>250,150</minsize>
+									<maxsize>250,150</maxsize>
+									<style>wxDOUBLE_BORDER</style>
+								</object>
+								<flag>wxALL</flag>
+								<border>5</border>
+								<option>1</option>
+							</object>
+							<object class="sizeritem">
+								<object class="wxBoxSizer" variable="BoxSizer10" member="no">
+									<object class="sizeritem">
+										<object class="wxStaticText" name="IDC_COLOR_VALUE_HEX" variable="m_ColorHexValueStatic" member="yes">
+											<label>0xFFFFFFFF</label>
+											<style>wxST_NO_AUTORESIZE|wxALIGN_CENTRE</style>
+										</object>
+										<flag>wxALL|wxEXPAND</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxButton" name="ID_BUTTON1" variable="m_ViewBackgroundColor" member="yes">
+											<size>30,30</size>
+											<bg>#FFFFFF</bg>
+											<maxsize>30,0</maxsize>
+											<style>wxSIMPLE_BORDER|wxTAB_TRAVERSAL</style>
+										</object>
+										<flag>wxLEFT|wxRIGHT|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+									</object>
+								</object>
+								<flag>wxEXPAND</flag>
+								<border>5</border>
+							</object>
+							<object class="sizeritem">
+								<object class="wxStaticLine" name="ID_STATICLINE2" variable="StaticLine2" member="yes">
+									<size>10,-1</size>
+								</object>
+								<flag>wxALL|wxEXPAND</flag>
+								<border>5</border>
+							</object>
+							<object class="sizeritem">
+								<object class="wxBoxSizer" variable="BoxSizer5" member="no">
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT2" variable="StaticText2" member="yes">
+											<label>名称:</label>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+									</object>
+									<object class="sizeritem">
+										<object class="wxTextCtrl" name="IDC_COLOR_NAME" variable="m_ColorNameText" member="yes">
+											<maxlength>64</maxlength>
+											<style>wxTE_PROCESS_ENTER</style>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+								</object>
+								<flag>wxTOP|wxBOTTOM|wxEXPAND</flag>
+								<border>5</border>
+							</object>
+							<object class="sizeritem">
+								<object class="wxBoxSizer" variable="BoxSizer6" member="no">
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT3" variable="StaticText3" member="yes">
+											<label>R:</label>
+											<size>14,-1</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSlider" name="IDC_COLOR_SLIDER_R" variable="m_ColorRSlider" member="yes">
+											<max>255</max>
+											<linesize>1</linesize>
+											<thumb>1</thumb>
+											<tick>1</tick>
+											<size>150,-1</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxTextCtrl" name="IDC_COLOR_R" variable="m_ColorRText" member="yes">
+											<size>45,-1</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+									</object>
+								</object>
+								<flag>wxTOP|wxBOTTOM|wxEXPAND</flag>
+								<border>5</border>
+							</object>
+							<object class="sizeritem">
+								<object class="wxBoxSizer" variable="BoxSizer7" member="no">
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT4" variable="StaticText4" member="yes">
+											<label>G:</label>
+											<size>14,-1</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSlider" name="IDC_COLOR_SLIDER_G" variable="m_ColorGSlider" member="yes">
+											<max>255</max>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxTextCtrl" name="IDC_COLOR_G" variable="m_ColorGText" member="yes">
+											<size>45,-1</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+									</object>
+								</object>
+								<flag>wxTOP|wxBOTTOM|wxEXPAND</flag>
+								<border>5</border>
+							</object>
+							<object class="sizeritem">
+								<object class="wxBoxSizer" variable="BoxSizer8" member="no">
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT5" variable="StaticText5" member="yes">
+											<label>B:</label>
+											<size>14,-1</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSlider" name="IDC_COLOR_SLIDER_B" variable="m_ColorBSlider" member="yes">
+											<max>255</max>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxTextCtrl" name="IDC_COLOR_B" variable="m_ColorBText" member="yes">
+											<size>45,-1</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+									</object>
+								</object>
+								<flag>wxTOP|wxBOTTOM|wxEXPAND</flag>
+								<border>5</border>
+							</object>
+							<object class="sizeritem">
+								<object class="wxBoxSizer" variable="BoxSizer9" member="no">
+									<object class="sizeritem">
+										<object class="wxStaticText" name="ID_STATICTEXT6" variable="StaticText6" member="yes">
+											<label>A:</label>
+											<size>14,-1</size>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+									</object>
+									<object class="sizeritem">
+										<object class="wxSlider" name="IDC_COLOR_SLIDER_A" variable="m_ColorASlider" member="yes">
+											<max>255</max>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+										<option>1</option>
+									</object>
+									<object class="sizeritem">
+										<object class="wxTextCtrl" name="IDC_COLOR_A" variable="m_ColorAText" member="yes">
+											<minsize>45,-1</minsize>
+										</object>
+										<flag>wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</flag>
+										<border>5</border>
+									</object>
+								</object>
+								<flag>wxTOP|wxBOTTOM|wxEXPAND</flag>
+								<border>5</border>
+							</object>
+						</object>
+						<flag>wxALL|wxEXPAND</flag>
+						<border>5</border>
+					</object>
+				</object>
+				<flag>wxTOP|wxLEFT|wxRIGHT|wxEXPAND</flag>
+				<border>5</border>
+				<option>1</option>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStaticLine" name="ID_STATICLINE1" variable="StaticLine1" member="yes">
+					<size>10,-1</size>
+				</object>
+				<flag>wxALL|wxEXPAND</flag>
+				<border>5</border>
+			</object>
+			<object class="sizeritem">
+				<object class="wxStdDialogButtonSizer" variable="StdDialogButtonSizer1" member="no">
+					<object class="button">
+						<object class="wxButton" name="wxID_OK">
+							<label>确定</label>
+						</object>
+					</object>
+					<object class="button">
+						<object class="wxButton" name="wxID_CANCEL">
+							<label>取消</label>
+						</object>
+					</object>
+					<object class="button">
+						<object class="wxButton" name="wxID_APPLY">
+							<label>应用</label>
+						</object>
+					</object>
+				</object>
+				<flag>wxALL|wxALIGN_RIGHT</flag>
+				<border>5</border>
+			</object>
+		</object>
+	</object>
+</wxsmith>

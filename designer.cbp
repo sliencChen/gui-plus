@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="designer" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/designer" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-g" />
+					<Add option="-D__WXDEBUG__" />
+					<Add directory="C:/wxWidgets-3.1.2/lib/gcc_dll/mswud" />
+					<Add directory="src/include" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="C:/wxWidgets-3.1.2/lib/gcc_dll/mswud" />
+				</ResourceCompiler>
+				<Linker>
+					<Add library="libwxmsw31ud.a" />
+					<Add directory="C:/wxWidgets-3.1.2/lib/gcc_dll" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/designer" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Option projectLinkerOptionsRelation="2" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="C:/wxWidgets-3.1.2/lib/gcc_dll/mswu" />
+				</Compiler>
+				<ResourceCompiler>
+					<Add directory="C:/wxWidgets-3.1.2/lib/gcc_dll/mswu" />
+				</ResourceCompiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-static" />
+					<Add library="libwxmsw31u_aui.a" />
+					<Add library="libwxmsw31u_propgrid.a" />
+					<Add library="libwxmsw31u_core.a" />
+					<Add library="libwxbase31u.a" />
+					<Add library="libwxpng.a" />
+					<Add library="libwxzlib.a" />
+					<Add library="libkernel32.a" />
+					<Add library="libuser32.a" />
+					<Add library="libgdi32.a" />
+					<Add library="libwinspool.a" />
+					<Add library="libcomdlg32.a" />
+					<Add library="libadvapi32.a" />
+					<Add library="libshell32.a" />
+					<Add library="liboleaut32.a" />
+					<Add library="libuuid.a" />
+					<Add library="libcomctl32.a" />
+					<Add library="libshlwapi.a" />
+					<Add library="libversion.a" />
+					<Add library="libuxtheme.a" />
+					<Add library="libole32.a" />
+					<Add library="liboleacc.a" />
+					<Add directory="C:/wxWidgets-3.1.2/lib/gcc_lib" />
+					<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/lib" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-std=c++11" />
+			<Add option="-pipe" />
+			<Add option="-mthreads" />
+			<Add option="-D__GNUWIN32__" />
+			<Add option="-D__WXMSW__" />
+			<Add option="-DwxUSE_UNICODE" />
+			<Add directory="C:/wxWidgets-3.1.2/include" />
+			<Add directory="src/include" />
+			<Add directory="src/sdk/stbgui/include" />
+			<Add directory="src/res" />
+			<Add directory="src/app" />
+			<Add directory="src/include/tinyxml" />
+		</Compiler>
+		<ResourceCompiler>
+			<Add directory="C:/wxWidgets-3.1.2/include" />
+		</ResourceCompiler>
+		<Linker>
+			<Add option="-mthreads" />
+			<Add library="src/lib/lib7zip.a" />
+		</Linker>
+		<Unit filename="res/designer.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="src/app/app_global.h" />
+		<Unit filename="src/app/designer.cpp" />
+		<Unit filename="src/app/designer.h" />
+		<Unit filename="src/app/dialog/colorlistbox.cpp" />
+		<Unit filename="src/app/dialog/colorlistbox.h" />
+		<Unit filename="src/app/dialog/editcolordlg.cpp" />
+		<Unit filename="src/app/dialog/editcolordlg.h" />
+		<Unit filename="src/app/dialog/editimagedlg.cpp" />
+		<Unit filename="src/app/dialog/editimagedlg.h" />
+		<Unit filename="src/app/dialog/editlogosdlg.cpp" />
+		<Unit filename="src/app/dialog/editlogosdlg.h" />
+		<Unit filename="src/app/dialog/imagelistbox.cpp" />
+		<Unit filename="src/app/dialog/imagelistbox.h" />
+		<Unit filename="src/app/dialog/logolistbox.cpp" />
+		<Unit filename="src/app/dialog/logolistbox.h" />
+		<Unit filename="src/app/dialog/newprojdlg.cpp" />
+		<Unit filename="src/app/dialog/newprojdlg.h" />
+		<Unit filename="src/app/dialog/packimagedlg.cpp" />
+		<Unit filename="src/app/dialog/packimagedlg.h" />
+		<Unit filename="src/app/dialog/packimageworker.cpp" />
+		<Unit filename="src/app/dialog/packimageworker.h" />
+		<Unit filename="src/app/dialog/searchlistbox.cpp" />
+		<Unit filename="src/app/dialog/searchlistbox.h" />
+		<Unit filename="src/app/dialog/searchlistdlg.cpp" />
+		<Unit filename="src/app/dialog/searchlistdlg.h" />
+		<Unit filename="src/app/main.cpp" />
+		<Unit filename="src/app/main.h" />
+		<Unit filename="src/app/maincanvas.cpp" />
+		<Unit filename="src/app/maincanvas.h" />
+		<Unit filename="src/app/pagelist.cpp" />
+		<Unit filename="src/app/pagelist.h" />
+		<Unit filename="src/app/recentitemslist.cpp" />
+		<Unit filename="src/app/recentitemslist.h" />
+		<Unit filename="src/app/version.h" />
+		<Unit filename="src/app/wxwidgets/wxsitemresdataobject.cpp" />
+		<Unit filename="src/app/wxwidgets/wxsitemresdataobject.h" />
+		<Unit filename="src/app/wxwidgets/wxsitemundobuffer.cpp" />
+		<Unit filename="src/app/wxwidgets/wxsitemundobuffer.h" />
+		<Unit filename="src/include/codegen/codegenerator.h" />
+		<Unit filename="src/include/codegen/coder.h" />
+		<Unit filename="src/include/codegen/codercontext.h" />
+		<Unit filename="src/include/codegen/codinglan.h" />
+		<Unit filename="src/include/codegen/utf8reader.h" />
+		<Unit filename="src/include/colors.h" />
+		<Unit filename="src/include/configmanager.h" />
+		<Unit filename="src/include/enums.h" />
+		<Unit filename="src/include/images.h" />
+		<Unit filename="src/include/lib/lib7zip/un7zip.h" />
+		<Unit filename="src/include/link_map.h" />
+		<Unit filename="src/include/logos.h" />
+		<Unit filename="src/include/manager.h" />
+		<Unit filename="src/include/pagefile.h" />
+		<Unit filename="src/include/pgtypes.h" />
+		<Unit filename="src/include/project.h" />
+		<Unit filename="src/include/property.h" />
+		<Unit filename="src/include/sdk_common.h" />
+		<Unit filename="src/include/stringmanager.h" />
+		<Unit filename="src/include/theme/theme.h" />
+		<Unit filename="src/include/theme/themesizer.h" />
+		<Unit filename="src/include/theme/uipagetheme.h" />
+		<Unit filename="src/include/tinywxuni.h" />
+		<Unit filename="src/include/tinyxml/tinystr.h" />
+		<Unit filename="src/include/tinyxml/tinyxml.h" />
+		<Unit filename="src/include/uirender.h" />
+		<Unit filename="src/include/util.h" />
+		<Unit filename="src/include/window/propname.h" />
+		<Unit filename="src/include/window/uibox_sizer.h" />
+		<Unit filename="src/include/window/uiedit.h" />
+		<Unit filename="src/include/window/uiedit_item.h" />
+		<Unit filename="src/include/window/uiimage.h" />
+		<Unit filename="src/include/window/uilabel.h" />
+		<Unit filename="src/include/window/uiline_chart.h" />
+		<Unit filename="src/include/window/uilist.h" />
+		<Unit filename="src/include/window/uilist_sizer.h" />
+		<Unit filename="src/include/window/uimenu.h" />
+		<Unit filename="src/include/window/uimenu_item.h" />
+		<Unit filename="src/include/window/uimessage_box.h" />
+		<Unit filename="src/include/window/uipage.h" />
+		<Unit filename="src/include/window/uiprompt.h" />
+		<Unit filename="src/include/window/uitext_field.h" />
+		<Unit filename="src/include/window/uiwindow.h" />
+		<Unit filename="src/lib/lzma/7zBuf.h" />
+		<Unit filename="src/lib/lzma/7zCrc.h" />
+		<Unit filename="src/lib/lzma/7zFile.h" />
+		<Unit filename="src/lib/lzma/7zVersion.h" />
+		<Unit filename="src/lib/lzma/Alloc.h" />
+		<Unit filename="src/lib/lzma/Bcj2.h" />
+		<Unit filename="src/lib/lzma/Bra.h" />
+		<Unit filename="src/lib/lzma/CpuArch.h" />
+		<Unit filename="src/lib/lzma/LzFind.h" />
+		<Unit filename="src/lib/lzma/LzFindMt.h" />
+		<Unit filename="src/lib/lzma/LzHash.h" />
+		<Unit filename="src/lib/lzma/LzmaDec.h" />
+		<Unit filename="src/lib/lzma/LzmaEnc.h" />
+		<Unit filename="src/lib/lzma/LzmaLib.h" />
+		<Unit filename="src/lib/lzma/Threads.h" />
+		<Unit filename="src/lib/lzma/Types.h" />
+		<Unit filename="src/lib/un7zip.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/res/amd64.manifest" />
+		<Unit filename="src/res/app.ico" />
+		<Unit filename="src/res/ia64.manifest" />
+		<Unit filename="src/res/icons/file_open.xpm" />
+		<Unit filename="src/res/wx.manifest" />
+		<Unit filename="src/sdk/codegen/codegenerator.cpp" />
+		<Unit filename="src/sdk/codegen/coder.cpp" />
+		<Unit filename="src/sdk/codegen/codercontext.cpp" />
+		<Unit filename="src/sdk/codegen/codinglan.cpp" />
+		<Unit filename="src/sdk/codegen/utf8reader.cpp" />
+		<Unit filename="src/sdk/colors.cpp" />
+		<Unit filename="src/sdk/configmanager.cpp" />
+		<Unit filename="src/sdk/images.cpp" />
+		<Unit filename="src/sdk/logos.cpp" />
+		<Unit filename="src/sdk/manager.cpp" />
+		<Unit filename="src/sdk/pagefile.cpp" />
+		<Unit filename="src/sdk/pgtypes.cpp" />
+		<Unit filename="src/sdk/platform/block_data.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/platform/block_data.h" />
+		<Unit filename="src/sdk/platform/compress.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/platform/compress.h" />
+		<Unit filename="src/sdk/project.cpp" />
+		<Unit filename="src/sdk/property.cpp" />
+		<Unit filename="src/sdk/stbgui/control/container.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/control/edit.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/control/edit_item.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/control/help.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/control/image.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/control/label.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/control/line_chart.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/control/list.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/control/menu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/control/menu_item.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/control/message_box.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/control/page.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/control/popup.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/control/progress_bar.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/control/prompt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/control/text_field.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/bitmap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/canvas.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/color.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/font/arabic_transform.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/font/char_map.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/font/conv.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/font/font_arabic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/font/font_chinese.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/font/font_common.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/font/font_khmer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/font/font_none.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/font/font_thai.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/font/khmer_transform.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/font/render.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/graphic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/gui_interface.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/painter.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/rect.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/resource.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/string.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/gdi/text.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/guicore/class.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/guicore/clip_region.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/guicore/event.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/guicore/gui_main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/guicore/invalid_region.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/guicore/private_heap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/guicore/winbase.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/guicore/window.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/include/control/container.h" />
+		<Unit filename="src/sdk/stbgui/include/control/edit.h" />
+		<Unit filename="src/sdk/stbgui/include/control/edit_item.h" />
+		<Unit filename="src/sdk/stbgui/include/control/help.h" />
+		<Unit filename="src/sdk/stbgui/include/control/image.h" />
+		<Unit filename="src/sdk/stbgui/include/control/label.h" />
+		<Unit filename="src/sdk/stbgui/include/control/line_chart.h" />
+		<Unit filename="src/sdk/stbgui/include/control/list.h" />
+		<Unit filename="src/sdk/stbgui/include/control/menu.h" />
+		<Unit filename="src/sdk/stbgui/include/control/menu_item.h" />
+		<Unit filename="src/sdk/stbgui/include/control/message_box.h" />
+		<Unit filename="src/sdk/stbgui/include/control/page.h" />
+		<Unit filename="src/sdk/stbgui/include/control/popup.h" />
+		<Unit filename="src/sdk/stbgui/include/control/progress_bar.h" />
+		<Unit filename="src/sdk/stbgui/include/control/prompt.h" />
+		<Unit filename="src/sdk/stbgui/include/control/text_field.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/bitmap.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/canvas.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/color.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/font/arabic_transform.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/font/conv.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/font/font_max.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/font/font_metrics.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/font/khmer_transform.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/font/render.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/graphic.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/gui_config.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/gui_interface.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/painter.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/rect.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/resource.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/string.h" />
+		<Unit filename="src/sdk/stbgui/include/gdi/text.h" />
+		<Unit filename="src/sdk/stbgui/include/gui.h" />
+		<Unit filename="src/sdk/stbgui/include/gui_common.h" />
+		<Unit filename="src/sdk/stbgui/include/gui_typedef.h" />
+		<Unit filename="src/sdk/stbgui/include/gui_window.h" />
+		<Unit filename="src/sdk/stbgui/include/guicore/class.h" />
+		<Unit filename="src/sdk/stbgui/include/guicore/clip_region.h" />
+		<Unit filename="src/sdk/stbgui/include/guicore/event.h" />
+		<Unit filename="src/sdk/stbgui/include/guicore/invalid_region.h" />
+		<Unit filename="src/sdk/stbgui/include/guicore/private_heap.h" />
+		<Unit filename="src/sdk/stbgui/include/guicore/winbase.h" />
+		<Unit filename="src/sdk/stbgui/include/guicore/window.h" />
+		<Unit filename="src/sdk/stbgui/include/sizer/box_sizer.h" />
+		<Unit filename="src/sdk/stbgui/include/sizer/list_sizer.h" />
+		<Unit filename="src/sdk/stbgui/include/sizer/sizer.h" />
+		<Unit filename="src/sdk/stbgui/include/theme/page_theme.h" />
+		<Unit filename="src/sdk/stbgui/include/theme/stb_theme.h" />
+		<Unit filename="src/sdk/stbgui/sizer/box_sizer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/sizer/list_sizer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/sizer/sizer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/theme/page_theme.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stbgui/theme/stb_theme.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/sdk/stringmanager.cpp" />
+		<Unit filename="src/sdk/theme/theme.cpp" />
+		<Unit filename="src/sdk/theme/themesizer.cpp" />
+		<Unit filename="src/sdk/theme/uipagetheme.cpp" />
+		<Unit filename="src/sdk/tinywxuni.cpp" />
+		<Unit filename="src/sdk/tinyxml/tinystr.cpp" />
+		<Unit filename="src/sdk/tinyxml/tinyxml.cpp" />
+		<Unit filename="src/sdk/tinyxml/tinyxmlerror.cpp" />
+		<Unit filename="src/sdk/tinyxml/tinyxmlparser.cpp" />
+		<Unit filename="src/sdk/uirender.cpp" />
+		<Unit filename="src/sdk/uitypes.cpp" />
+		<Unit filename="src/sdk/util.cpp" />
+		<Unit filename="src/sdk/window/uibox_sizer.cpp" />
+		<Unit filename="src/sdk/window/uiedit.cpp" />
+		<Unit filename="src/sdk/window/uiedit_item.cpp" />
+		<Unit filename="src/sdk/window/uiimage.cpp" />
+		<Unit filename="src/sdk/window/uilabel.cpp" />
+		<Unit filename="src/sdk/window/uiline_chart.cpp" />
+		<Unit filename="src/sdk/window/uilist.cpp" />
+		<Unit filename="src/sdk/window/uilist_sizer.cpp" />
+		<Unit filename="src/sdk/window/uimenu.cpp" />
+		<Unit filename="src/sdk/window/uimenu_item.cpp" />
+		<Unit filename="src/sdk/window/uimessage_box.cpp" />
+		<Unit filename="src/sdk/window/uipage.cpp" />
+		<Unit filename="src/sdk/window/uiprompt.cpp" />
+		<Unit filename="src/sdk/window/uitext_field.cpp" />
+		<Unit filename="src/sdk/window/uiwindow.cpp" />
+		<Unit filename="wxsmith/EditColorDialog.wxs" />
+		<Unit filename="wxsmith/EditImageDialog.wxs" />
+		<Unit filename="wxsmith/EditLogosDialog.wxs" />
+		<Unit filename="wxsmith/NewProjectDialog.wxs" />
+		<Unit filename="wxsmith/PackImageDialog.wxs" />
+		<Unit filename="wxsmith/SearchListDialog.wxs" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="" main="" init_handlers="necessary" language="CPP" />
+				<resources>
+					<wxDialog wxs="wxsmith/NewProjectDialog.wxs" src="src/app/dialog/newprojdlg.cpp" hdr="src/app/dialog/newprojdlg.h" fwddecl="1" i18n="0" name="NewProjectDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/EditColorDialog.wxs" src="src/app/dialog/editcolordlg.cpp" hdr="src/app/dialog/editcolordlg.h" fwddecl="1" i18n="0" name="EditColorDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/EditImageDialog.wxs" src="src/app/dialog/editimagedlg.cpp" hdr="src/app/dialog/editimagedlg.h" fwddecl="1" i18n="0" name="EditImageDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/EditLogosDialog.wxs" src="src/app/dialog/editlogosdlg.cpp" hdr="src/app/dialog/editlogosdlg.h" fwddecl="1" i18n="0" name="EditLogosDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/SearchListDialog.wxs" src="src/app/dialog/searchlistdlg.cpp" hdr="src/app/dialog/searchlistdlg.h" fwddecl="1" i18n="0" name="SearchListDialog" language="CPP" />
+					<wxDialog wxs="wxsmith/PackImageDialog.wxs" src="src/app/dialog/packimagedlg.cpp" hdr="src/app/dialog/packimagedlg.h" fwddecl="1" i18n="0" name="PackImageDialog" language="CPP" />
+				</resources>
+			</wxsmith>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
