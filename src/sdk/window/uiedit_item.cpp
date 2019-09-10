@@ -21,7 +21,7 @@ uiEditItem::uiEditItem(uiWindow *parent) : uiWindow(parent)
 	m_Properties.insert(pair<wxString, PropertyBase*>(PROP_EDIT_ITEM_FIELD_STRING, new PropertyInternalString("Null value")));
 	m_Properties.insert(pair<wxString, PropertyBase*>(PROP_EDIT_ITEM_HEAD_WIDTH, new PropertyInteger(400)));
 	m_Properties.insert(pair<wxString, PropertyBase*>(PROP_EDIT_ITEM_TYPE, new PropertyEnum(0)));
-	m_Properties.insert(pair<wxString, PropertyBase*>(PROP_FOCUS, new PropertyBool(true)));
+	m_Properties.insert(pair<wxString, PropertyBase*>(PROP_FOCUS, new PropertyBool(false)));
 
 	/* Marked as a control */
 	m_type = WINDOW_TYPE_CONTROL;
@@ -33,6 +33,7 @@ uiEditItem::~uiEditItem(void)
 {
 
 }
+
 
 wxPGChoices uiEditItem::AddEnmuChildProperty(wxString key)
 {
@@ -146,6 +147,7 @@ void uiEditItem::OnBuildDeclarationsCode()
 	AddDeclaration(wxString::Format(wxT("UIEdit *%s = create_edit_item(\"%s\");"), GetStrPropValue(PROP_VAR_NAME), GetName()));
 }
 
+
 void uiEditItem::OnBuildWindowStructureCode()
 {
 	uiWindow *Parent_win = m_Parent;
@@ -153,19 +155,24 @@ void uiEditItem::OnBuildWindowStructureCode()
 		AddStructure(wxString::Format(wxT("add_sub_window(%s, %s);"), Parent_win->GetStrPropValue(PROP_VAR_NAME), GetStrPropValue(PROP_VAR_NAME)));
 }
 
+
 void uiEditItem::OnBuildCreatingCode()
 {
-	//uiWindow::OnBuildCreatingCode();
-	AddBuildingCode(wxString::Format(wxT("set_edit_item_field_type(%s, \"%d\");\n"), GetStrPropValue(PROP_VAR_NAME), GetBoolPropValue(PROP_EDIT_ITEM_TYPE)));
-	AddBuildingCode(wxString::Format(wxT("set_edit_item_header_text(%s, \"%s\");\n"), GetStrPropValue(PROP_VAR_NAME), GetStrPropValue(PROP_EDIT_ITEM_HEAD_STRING)));
-	AddBuildingCode(wxString::Format(wxT("set_edit_item_field_text(%s, \"%d\");\n"), GetStrPropValue(PROP_VAR_NAME), GetStrPropValue(PROP_EDIT_ITEM_FIELD_STRING)));
-	AddBuildingCode(wxString::Format(wxT("set_edit_item_high_light(%s, \"%d\");\n"), GetStrPropValue(PROP_VAR_NAME), GetBoolPropValue(PROP_FOCUS)));
-	AddBuildingCode(wxString::Format(wxT("set_edit_item_header_width(%s, \"%d\");\n"), GetStrPropValue(PROP_VAR_NAME), GetIntPropValue(PROP_EDIT_ITEM_HEAD_WIDTH)));
-	AddBuildingCode(wxString::Format(wxT("UIEditData *%s_data = %s->private_data;\n"), m_Parent->GetStrPropValue(PROP_NAME), m_Parent->GetStrPropValue(PROP_VAR_NAME)));
-	AddBuildingCode(wxString::Format(wxT("sizer_add_window(%s_data->list_sizer, %s, %s->rect.size, 1, 1, UI_ALIGN_CENTER_VER|UI_SIZER_FLAG_BORDER_TOP|UI_SIZER_FLAG_EXPAND);\n"), \
-			m_Parent->GetStrPropValue(PROP_VAR_NAME), GetStrPropValue(PROP_VAR_NAME), GetStrPropValue(PROP_VAR_NAME)));
+	uiWindow::OnBuildCreatingCode();
+	uiWindow *Parent_win = m_Parent;
+	if (Parent_win->GetClassName() == "UIEdit")
+	{
+		AddBuildingCode(wxString::Format(wxT("set_edit_item_field_type(%s, %d);\n"), GetStrPropValue(PROP_VAR_NAME), GetBoolPropValue(PROP_EDIT_ITEM_TYPE)));
+		AddBuildingCode(wxString::Format(wxT("set_edit_item_header_text(%s, \"%s\");\n"), GetStrPropValue(PROP_VAR_NAME), GetStrPropValue(PROP_EDIT_ITEM_HEAD_STRING)));
+		AddBuildingCode(wxString::Format(wxT("set_edit_item_field_text(%s, \"%s\");\n"), GetStrPropValue(PROP_VAR_NAME), GetStrPropValue(PROP_EDIT_ITEM_FIELD_STRING)));
+		AddBuildingCode(wxString::Format(wxT("set_edit_item_high_light(%s, %d);\n"), GetStrPropValue(PROP_VAR_NAME), GetBoolPropValue(PROP_FOCUS)));
+		AddBuildingCode(wxString::Format(wxT("set_edit_item_header_width(%s, %d);\n"), GetStrPropValue(PROP_VAR_NAME), GetIntPropValue(PROP_EDIT_ITEM_HEAD_WIDTH)));
+		AddBuildingCode(wxString::Format(wxT("sizer_add_window(%s_data->list_sizer, %s, %s->rect.size, 1, 1, UI_ALIGN_CENTER_VER|UI_SIZER_FLAG_BORDER_TOP|UI_SIZER_FLAG_EXPAND);\n"),
+		m_Parent->GetStrPropValue(PROP_VAR_NAME), GetStrPropValue(PROP_VAR_NAME), GetStrPropValue(PROP_VAR_NAME)));
+	}
 	AddBuildingCode("\n");
 }
+
 
 void uiEditItem::OnBuildIdCode()
 {

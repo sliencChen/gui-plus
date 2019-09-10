@@ -133,21 +133,30 @@ void uiEdit::OnBuildDeclarationsCode()
 	AddDeclaration(wxString::Format(wxT("UIEdit *%s = create_edit(\"%s\");"), GetStrPropValue(PROP_VAR_NAME), GetName()));
 }
 
+
 void uiEdit::OnBuildCreatingCode()
 {
+//	rect = GetRectPropValue(PROP_CONTAINER_INSET);
+//	UIInset inset = {rect.GetWidth(), rect.GetX(), rect.GetHeight(), rect.GetY()};
+//	set_edit_inset(window, inset);
+//	set_edit_max_item(window, GetIntPropValue(PROP_EDIT_PAGE_MAX_ITEMS));	trunk
 	uiWindow::OnBuildCreatingCode();
+	AddBuildingCode(wxString::Format(wxT("set_edit_max_item(%s, %d);\n"), GetStrPropValue(PROP_VAR_NAME), GetIntPropValue(PROP_EDIT_PAGE_MAX_ITEMS)));
+	AddBuildingCode(wxString::Format(wxT("set_edit_max_item(%s, %d);\n"), GetStrPropValue(PROP_VAR_NAME), GetIntPropValue(PROP_EDIT_PAGE_MAX_ITEMS)));
+	AddBuildingCode(wxString::Format(wxT("UIEditData *%s_data = %s->private_data;\n"), GetStrPropValue(PROP_VAR_NAME), GetStrPropValue(PROP_VAR_NAME)));
 	AddBuildingCode("\n");
 }
+
 
 void uiEdit::OnBuildIdCode()
 {
 
 }
 
+
 void uiEdit::BuildCode(wxsCoderContext* Context)
 {
-    wxsCoderContext* Store = GetCoderContext();
-    Store = Context;
+    SetCoderContext(Context);
     long FlagsStore = Context->m_Flags;
 //    OnUpdateFlags(Context->m_Flags);
     OnBuildDeclarationsCode();
@@ -162,7 +171,12 @@ void uiEdit::BuildCode(wxsCoderContext* Context)
 	{
 		child->BuildCode(Context);
 		child = child->m_Next;
+	}
 
+	if (m_Childs)
+	{
+		AddBuildingCode(wxString::Format(wxT("set_container_auto_size(%s, %d);\n"), GetStrPropValue(PROP_VAR_NAME), GetBoolPropValue(PROP_EDIT_AUTO_SIZE, TRUE)));
+		AddBuildingCode(wxString::Format(wxT("set_edit_sizer(%s);\n"), GetStrPropValue(PROP_VAR_NAME)));
 	}
 //    OnBuildXRCFetchingCode();
     Context->m_Flags = FlagsStore;

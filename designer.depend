@@ -2885,7 +2885,7 @@
 
 1568002611 e:\mkgui\designer17\trunk\src\include\window\propname.h
 
-1568022736 e:\mkgui\designer17\trunk\src\include\codegen\codegenerator.h
+1568080245 e:\mkgui\designer17\trunk\src\include\codegen\codegenerator.h
 	"codegen/codercontext.h"
 
 1567566525 e:\mkgui\designer17\trunk\src\include\codegen\codercontext.h
@@ -3302,7 +3302,7 @@
 1567566525 e:\mkgui\designer17\trunk\src\include\uirender.h
 	"window/uiwindow.h"
 
-1567566523 e:\mkgui\designer17\trunk\src\app\maincanvas.h
+1568078614 e:\mkgui\designer17\trunk\src\app\maincanvas.h
 	<wx/wx.h>
 	"wx/dcbuffer.h"
 	"wx/dcclient.h"
@@ -3570,7 +3570,7 @@
 1567566523 e:\mkgui\designer17\trunk\src\app\dialog\searchlistdlg.h
 	<wx/dialog.h>
 
-1568010117 source:e:\mkgui\designer17\trunk\src\app\main.cpp
+1568078867 source:e:\mkgui\designer17\trunk\src\app\main.cpp
 	<wx/artprov.h>
 	"app_global.h"
 	"designer.h"
@@ -3634,7 +3634,7 @@
 	"window/uiWindow.h"
 	"pagefile.h"
 
-1568010165 source:e:\mkgui\designer17\trunk\src\app\maincanvas.cpp
+1568078540 source:e:\mkgui\designer17\trunk\src\app\maincanvas.cpp
 	<string.h>
 	<wx/dcbuffer.h>
 	"app_global.h"
@@ -3673,7 +3673,7 @@
 1567566525 e:\mkgui\designer17\trunk\src\lib\lzma\lzmalib.h
 	"Types.h"
 
-1567566525 source:e:\mkgui\designer17\trunk\src\sdk\codegen\codegenerator.cpp
+1568080063 source:e:\mkgui\designer17\trunk\src\sdk\codegen\codegenerator.cpp
 	"codegen/codegenerator.h"
 
 1567566525 source:e:\mkgui\designer17\trunk\src\sdk\codegen\coder.cpp
@@ -4087,7 +4087,7 @@
 1567566525 source:e:\mkgui\designer17\trunk\src\sdk\window\uibox_sizer.cpp
 	"window/uibox_sizer.h"
 
-1568022840 source:e:\mkgui\designer17\trunk\src\sdk\window\uiedit_item.cpp
+1568083539 source:e:\mkgui\designer17\trunk\src\sdk\window\uiedit_item.cpp
 	"window/uiedit.h"
 	"window/uiedit_item.h"
 
@@ -4128,7 +4128,7 @@
 	"main.h"
 	"window/uitext_field.h"
 
-1567566525 source:e:\mkgui\designer17\trunk\src\sdk\window\uiwindow.cpp
+1568083519 source:e:\mkgui\designer17\trunk\src\sdk\window\uiwindow.cpp
 	<stdlib.h>
 	<string.h>
 	<wx/propgrid/manager.h>
@@ -4158,7 +4158,7 @@
 	"window/uilabel.h"
 	"codegen/coder.h"
 
-1568023190 source:e:\mkgui\designer17\trunk\src\sdk\window\uiedit.cpp
+1568083476 source:e:\mkgui\designer17\trunk\src\sdk\window\uiedit.cpp
 	"window/uiedit.h"
 	"window/uiedit_item.h"
 

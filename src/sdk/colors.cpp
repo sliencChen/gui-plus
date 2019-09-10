@@ -89,24 +89,25 @@ void Colors::Refresh(Project* project)
 	memset(m_ColorIndexs, 0, totalColor * sizeof(long));
 
 	unsigned int i;
-	const char *colorName;
+	char *colorName = new char[50];
 	for (i = 0; i < totalColor; i++)
 	{
 		if (i < m_NormColors.Count())
 		{
 			m_ColorIndexs[i] = i > 0 ? i : wxPG_COLOUR_CUSTOM;
-			colorName = dsU2C(m_NormColors.GetColor(i).GetName());
+			strcpy(colorName, dsU2C(m_NormColors.GetColor(i).GetName()));
 		}
 		else
 		{
 			m_ColorIndexs[i] = PROJECT_COLOR_START_INDEX + i - m_NormColors.Count();
-			colorName = dsU2C(m_ProjColors.GetColor(i - m_NormColors.Count()).GetName());
+			strcpy(colorName, dsU2C(m_ProjColors.GetColor(i - m_NormColors.Count()).GetName()));
 		}
 
 	    char *name = new char[strlen(colorName) + 1];
 	    strcpy(name, colorName);
 	    m_ColorNames[i] = name;
 	}
+	delete colorName;
 }
 
 const char* const *Colors::GetNames(void)

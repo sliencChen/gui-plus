@@ -37,6 +37,9 @@ class wxsCodeGenerator
 //        virtual void OnBuildXRCFetchingCode() = 0;           ///< \brief Building code which fetches this item from xrc resource
 //        virtual void OnUpdateFlags(cb_unused long& Flags) {} ///< \brief Function called to update context flags just before the code is generated, previous flags are restored after code is generated
 
+        /** \brief Setting current coding context */
+        void SetCoderContext(wxsCoderContext* Context) { m_Context = Context; }
+
         /** \brief Getting current coding context */
         inline wxsCoderContext* GetCoderContext() { return m_Context; }
 

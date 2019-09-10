@@ -103,6 +103,7 @@ void CanvasWindow::RefreshSelection()
 void CanvasWindow::InsertByPointing(void)
 {
     m_ToolControlChanged = 1;
+    m_MouseState = msTargetSearch;
 }
 
 
@@ -189,6 +190,12 @@ void CanvasWindow::PaintExtra(wxDC* DC)
         int PosX = DPD->PosX - m_BorderSize/2 - m_BorderSize;
         int PosY = DPD->PosY - m_BorderSize/2 - m_BorderSize;
         DC->DrawRectangle(PosX , PosY, m_BorderSize, m_BorderSize );
+    }
+
+
+    if ( m_MouseState==msTargetSearch && m_TargetInfo_Icon.IsOk())
+    {
+        DC->DrawBitmap(m_TargetInfo_Icon, m_TargetX+10, m_TargetY,true);
     }
 }
 
@@ -379,6 +386,11 @@ void CanvasWindow::OnMouseDraggingPointInit(wxMouseEvent& event)
         return;
     }
 
+    if (m_ActiveWindow->GetClassName() == "UIPage" || m_ActiveWindow->GetClassName() == "UIImage")
+    {
+    	return;
+    }
+
     int DeltaX = event.GetX() - m_DragInitPosX;
     if ( DeltaX<0 ) DeltaX = -DeltaX;
     int DeltaY = event.GetY() - m_DragInitPosY;
@@ -410,6 +422,27 @@ void CanvasWindow::OnMouseDraggingPoint(wxMouseEvent& event)
     {
         if ( m_ActiveWindow )
         {
+            for ( size_t i=0; i<m_DragPoints.Count(); i++ )
+            {
+                if (m_DragPoints[i]->PosX < 0)
+                {
+                	m_DragPoints[i]->PosX = m_BorderSize;
+                }
+                else if (m_DragPoints[i]->PosX > 1280 + m_BorderSize)
+                {
+                	m_DragPoints[i]->PosX = 1280 + m_BorderSize;
+                }
+
+                if (m_DragPoints[i]->PosY < 0)
+                {
+                	m_DragPoints[i]->PosY = m_BorderSize;
+                }
+                else if (m_DragPoints[i]->PosY > 720 + m_BorderSize)
+                {
+                	m_DragPoints[i]->PosY = 720 + m_BorderSize;
+                }
+            }
+
             DragPointData* leftTop = m_CurDragPoint->ItemPoints[LeftTop];
             DragPointData* rightBtm = m_CurDragPoint->ItemPoints[RightBtm];
             int OldPosX = leftTop->DragInitPosX;
@@ -516,6 +549,27 @@ void CanvasWindow::OnMouseDraggingPoint(wxMouseEvent& event)
     ItemPoints[Btm]->PosX = (LX+RX)/2;
     ItemPoints[Btm]->PosY = RY;
 
+    for ( size_t i=0; i<m_DragPoints.Count(); i++ )
+    {
+        if (m_DragPoints[i]->PosX < 0)
+        {
+        	m_DragPoints[i]->PosX = m_BorderSize;
+        }
+        else if (m_DragPoints[i]->PosX > 1280 + m_BorderSize)
+        {
+        	m_DragPoints[i]->PosX = 1280 + m_BorderSize;
+        }
+
+        if (m_DragPoints[i]->PosY < 0)
+        {
+        	m_DragPoints[i]->PosY = m_BorderSize;
+        }
+        else if (m_DragPoints[i]->PosY > 720 + m_BorderSize)
+        {
+        	m_DragPoints[i]->PosY = 720 + m_BorderSize;
+        }
+    }
+
     OnCanvasWinRectUpdate();
     FastRepaint();
 }
@@ -528,6 +582,11 @@ void CanvasWindow::OnMouseDraggingItemInit(wxMouseEvent& event)
     {
         m_MouseState = msIdle;
         return;
+    }
+
+    if (m_ActiveWindow->GetClassName() == "UIPage")
+    {
+    	return;
     }
 
     int DeltaX = event.GetX() - m_DragInitPosX;
@@ -544,6 +603,9 @@ void CanvasWindow::OnMouseDraggingItemInit(wxMouseEvent& event)
 
 void CanvasWindow::OnMouseDraggingItem(wxMouseEvent& event)
 {
+    int itemPosX,itemPosY,itemSizeX,itemSizeY;
+    int CorrectDeltaX, CorrectDeltaY;
+    FindAbsoluteRect(m_ActiveWindow,itemPosX,itemPosY,itemSizeX,itemSizeY);
     if ( event.RightIsDown() || event.MiddleIsDown() )
     {
         // Cancelling change
@@ -566,6 +628,39 @@ void CanvasWindow::OnMouseDraggingItem(wxMouseEvent& event)
 //            return;
         }
 
+        if (m_DragPoints[LeftTop]->PosX + itemSizeX > 1280 + m_BorderSize)
+        {
+        	CorrectDeltaX = m_DragPoints[LeftTop]->PosX - (1280 + m_BorderSize - itemSizeX);
+            for ( size_t i=0; i<m_DragPoints.Count(); i++ )
+            {
+                m_DragPoints[i]->PosX -= CorrectDeltaX;
+            }
+        }
+        else if (m_DragPoints[LeftTop]->PosX < 0)
+        {
+        	CorrectDeltaX = -m_DragPoints[LeftTop]->PosX + m_BorderSize;
+            for ( size_t i=0; i<m_DragPoints.Count(); i++ )
+            {
+                m_DragPoints[i]->PosX += CorrectDeltaX;
+            }
+        }
+
+        if (m_DragPoints[LeftTop]->PosY + itemSizeY > 720 + m_BorderSize)
+        {
+        	CorrectDeltaY = m_DragPoints[LeftTop]->PosY - (720 + m_BorderSize - itemSizeY);
+            for ( size_t i=0; i<m_DragPoints.Count(); i++ )
+            {
+                m_DragPoints[i]->PosY -= CorrectDeltaY;
+            }
+        }
+        else if (m_DragPoints[LeftTop]->PosY < 0)
+        {
+        	CorrectDeltaY = -m_DragPoints[LeftTop]->PosY + m_BorderSize;
+            for ( size_t i=0; i<m_DragPoints.Count(); i++ )
+            {
+                m_DragPoints[i]->PosY += CorrectDeltaY;
+            }
+        }
 
         if ( m_CurDragPoint->PosX != m_CurDragPoint->DragInitPosX ||
              m_CurDragPoint->PosY != m_CurDragPoint->DragInitPosY )
@@ -594,25 +689,93 @@ void CanvasWindow::OnMouseDraggingItem(wxMouseEvent& event)
         m_DragPoints[i]->PosY = m_DragPoints[i]->DragInitPosY + DeltaY;
     }
 
+    if (m_DragPoints[LeftTop]->PosX + itemSizeX > 1280 + m_BorderSize)
+    {
+    	CorrectDeltaX = m_DragPoints[LeftTop]->PosX - (1280 + m_BorderSize - itemSizeX);
+        for ( size_t i=0; i<m_DragPoints.Count(); i++ )
+        {
+            m_DragPoints[i]->PosX -= CorrectDeltaX;
+        }
+    }
+    else if (m_DragPoints[LeftTop]->PosX < 0)
+    {
+    	CorrectDeltaX = -m_DragPoints[LeftTop]->PosX + m_BorderSize;
+        for ( size_t i=0; i<m_DragPoints.Count(); i++ )
+        {
+            m_DragPoints[i]->PosX += CorrectDeltaX;
+        }
+    }
+
+    if (m_DragPoints[LeftTop]->PosY + itemSizeY > 720 + m_BorderSize)
+    {
+    	CorrectDeltaY = m_DragPoints[LeftTop]->PosY - (720 + m_BorderSize - itemSizeY);
+        for ( size_t i=0; i<m_DragPoints.Count(); i++ )
+        {
+            m_DragPoints[i]->PosY -= CorrectDeltaY;
+        }
+    }
+    else if (m_DragPoints[LeftTop]->PosY < 0)
+    {
+    	CorrectDeltaY = -m_DragPoints[LeftTop]->PosY + m_BorderSize;
+        for ( size_t i=0; i<m_DragPoints.Count(); i++ )
+        {
+            m_DragPoints[i]->PosY += CorrectDeltaY;
+        }
+    }
+
     OnCanvasWinRectUpdate();
     FastRepaint();
 }
 
 void CanvasWindow::OnMouseTargetSearch(wxMouseEvent& event)
 {
-//    if ( event.RightDown() )
-//    {
-//        m_MouseState = msIdle;
-//        OnCanvasCancelDrag();
-//        return;
-//    }
+	uiWindow *pre_ActiveWindow = m_ActiveWindow;
+    if ( event.RightDown() )
+    {
+        m_MouseState = msIdle;
+        //OnCanvasCancelDrag();
+        m_ToolControlChanged = 0;
+        FastRepaint();
+        return;
+    }
 
-    //if ( event.LeftDown() )
-    //{
+    m_TargetX = event.GetX();
+    m_TargetY = event.GetY();
+
+    uiWindow* OnCursor = FindWindowAtPos(m_TargetX, m_TargetY, m_RootWindow);
+
+    if ( !OnCursor ) OnCursor = m_RootWindow;
+    FindContainerByWindow(OnCursor);
+
+    if ( event.LeftDown() )
+    {
         OnCanvasClicked();
+        if (pre_ActiveWindow != m_ActiveWindow)
+        {
+            PropertyRect *rect = (PropertyRect *)m_ActiveWindow->m_Properties.find(PROP_POSITION)->second;
+            if (!rect)
+                return ;
+
+            GetRelativePoint(m_ActiveWindow, m_TargetX, m_TargetY);
+//            wxLogMessage("item NewPosX=%d, NewPosY=%d, NewSizeX=%d, NewSizeY=%d", m_CurDragPoint->PosX,m_CurDragPoint->PosY,rect->GetWidth(),rect->GetHeight());
+            if (m_TargetX + rect->GetWidth() > DEFAULT_CANVAS_WIDTH)
+            {
+            	m_TargetX = DEFAULT_CANVAS_WIDTH - rect->GetWidth();
+            }
+            if (m_TargetY + rect->GetHeight() > DEFAULT_CANVAS_HEIGHT)
+            {
+            	m_TargetY = DEFAULT_CANVAS_HEIGHT - rect->GetHeight();
+            }
+
+            wxRect temp_rect(m_TargetX, m_TargetY, rect->GetWidth(), rect->GetHeight());
+
+            m_ActiveWindow->SetProperty(PROP_POSITION, temp_rect);
+            OnCanvasChanged();
+        }
         m_MouseState = msIdle;
         m_ToolControlChanged = 0;
-    //}
+    }
+    FastRepaint();
 }
 
 
@@ -675,7 +838,7 @@ uiWindow* CanvasWindow::FindWindowAtPos(int PosX,int PosY, uiWindow* SearchIn)
     if ( PosX >= (itemPosX+itemSizeX) ) return nullptr;
     if ( PosY < itemPosY ) return nullptr;
     if ( PosY >= (itemPosY+itemSizeY) ) return nullptr;
-
+    //此处传入的是m_RootWindow   所以怎么样都是可以找到m_ActiveWindow
     if(find_node == m_ActiveWindow)
     {
         return find_node;
@@ -821,7 +984,7 @@ void CanvasWindow::AddDragPoints(uiWindow *activeWindow)
             ItemPoints[i]->DragInitPosX = ItemPoints[i]->PosX;
             ItemPoints[i]->DragInitPosY = ItemPoints[i]->PosY;
         }
-
+	    ClearDragPoints();
 		for (int i = 0; i < DragBoxTypeCnt; ++i)
         {
             memcpy(ItemPoints[i]->ItemPoints,ItemPoints,sizeof(ItemPoints[0]->ItemPoints));

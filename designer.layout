@@ -2,9 +2,19 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="Debug" />
-	<File name="src\include\theme\theme.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\app\main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1204" topLine="0" />
+			<Cursor1 position="354" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\sdk\window\uiedit.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3503" topLine="106" />
+		</Cursor>
+	</File>
+	<File name="src\sdk\stbgui\guicore\window.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="8" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="302" topLine="172" />
 		</Cursor>
 	</File>
 	<File name="src\include\window\uiwindow.h" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -12,14 +22,24 @@
 			<Cursor1 position="2468" topLine="38" />
 		</Cursor>
 	</File>
-	<File name="src\sdk\window\uiedit.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
+	<File name="src\sdk\window\uilist_sizer.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4319" topLine="111" />
+			<Cursor1 position="2824" topLine="49" />
 		</Cursor>
 	</File>
-	<File name="src\include\configmanager.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\sdk\codegen\codegenerator.cpp" open="1" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="8" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="272" topLine="0" />
+			<Cursor1 position="84" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="src\sdk\window\uiedit_item.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4754" topLine="99" />
+		</Cursor>
+	</File>
+	<File name="src\app\maincanvas.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="488" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\sdk\uirender.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -27,14 +47,9 @@
 			<Cursor1 position="10496" topLine="302" />
 		</Cursor>
 	</File>
-	<File name="src\sdk\window\uilist_sizer.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\include\theme\theme.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="2824" topLine="49" />
-		</Cursor>
-	</File>
-	<File name="src\sdk\window\uiedit_item.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4754" topLine="98" />
+			<Cursor1 position="1204" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\app\main.h" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -42,14 +57,9 @@
 			<Cursor1 position="5205" topLine="126" />
 		</Cursor>
 	</File>
-	<File name="src\app\maincanvas.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="src\include\window\uiedit_item.h" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="488" topLine="13" />
-		</Cursor>
-	</File>
-	<File name="src\sdk\window\uimessage_box.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="247" topLine="0" />
+			<Cursor1 position="131" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="src\include\codegen\codegenerator.h" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -62,19 +72,14 @@
 			<Cursor1 position="1064" topLine="2" />
 		</Cursor>
 	</File>
-	<File name="src\sdk\stbgui\guicore\window.c" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="8" zoom_2="0">
+	<File name="src\include\configmanager.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="302" topLine="172" />
+			<Cursor1 position="272" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="src\app\main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="7" zoom_2="0">
+	<File name="src\sdk\window\uimessage_box.cpp" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="354" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="src\include\window\uiedit_item.h" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="131" topLine="0" />
+			<Cursor1 position="247" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

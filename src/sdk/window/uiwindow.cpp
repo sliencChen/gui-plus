@@ -238,6 +238,23 @@ void uiWindow::SetProperty(const wxString& key, const wxAny& value)
 		if (imageValue != 0xFFFFFF && Manager::Get()->GetActiveProject())
 		{
 			imageProperty->SetImage(Manager::Get()->GetActiveProject()->m_Images.GetImageName(imageValue));
+			wxString ImageName = Manager::Get()->GetActiveProject()->m_Images.GetImageName(imageValue);
+			imageProperty->SetImage(ImageName);
+			if (!ImageName.empty())
+			{
+				Image *Image = Manager::Get()->GetActiveProject()->m_Images.GetImage(ImageName);
+				PropertyRect *temp_rect = (PropertyRect *)m_Properties.find(PROP_POSITION)->second;
+				wxRect rect;
+				if (temp_rect && Image)
+				{
+					rect = wxRect(temp_rect->GetX(), temp_rect->GetY(), Image->GetWidth(), Image->GetHeight());
+				}
+				else
+				{
+					rect = wxRect(0, 0, 200, 200);
+				}
+		        SetProperty(PROP_POSITION, rect);
+			}
 		}
 	}
 	else if (prop->m_Type == PropertyType_Logo)
@@ -796,6 +813,8 @@ void uiWindow::OnBuildWindowStructureCode()
 
 void uiWindow::OnBuildCreatingCode()
 {
+	PropertyRect *temp_rect = (PropertyRect *)m_Properties.find(PROP_POSITION)->second;
+	AddBuildingCode(wxString::Format(wxT("set_window_rect(%s, ui_rect(%d, %d, %d, %d));\n"), GetStrPropValue(PROP_VAR_NAME), temp_rect->GetX(), temp_rect->GetY(), temp_rect->GetWidth(), temp_rect->GetHeight()));
 	AddBuildingCode(wxString::Format(wxT("set_window_color(%s, 0x%08X);\n"), GetStrPropValue(PROP_VAR_NAME), GetColorPropValue(PROP_BKG_COLOR)));
 }
 

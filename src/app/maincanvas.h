@@ -38,6 +38,10 @@ public:
 
     wxRect GetDragingWindowRect(void);
 
+    void SetTargetInfoIcon(wxBitmap Icon) { m_TargetInfo_Icon = Icon; }
+    wxBitmap& GetTargetInfoIcon(void) { return m_TargetInfo_Icon; }
+
+
 protected:
 
 	void OnEraseBackground(wxEraseEvent &event);
@@ -99,6 +103,10 @@ private:
     int            m_DragInitPosX;                      ///< \brief Initial mouse x position when dragging
     int            m_DragInitPosY;                      ///< \brief Initial mouse y position when dragging
     static const int m_MinDragDistance = 8;             ///< \brief Minimal distance which must be done to apply dragging
+
+    int m_TargetX;
+    int m_TargetY;
+    wxBitmap m_TargetInfo_Icon;
 
     /** \brief Processing mouse events */
     void OnMouse(wxMouseEvent& event);

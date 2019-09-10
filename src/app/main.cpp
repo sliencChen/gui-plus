@@ -1457,6 +1457,7 @@ void MainFrame::OnPropertyGridChange(wxPropertyGridEvent& event)
 	{
 		UpdatePropertyGrid();
 	}
+	UpdatePropertyGrid();
 	RefreshProperty();
 }
 
@@ -1798,6 +1799,76 @@ void MainFrame::OnAddWindowRequest(wxCommandEvent& event)
         m_ControlsToolBar->Refresh();
         return;
     }
+
+    int select = -1;
+	for (int i = TOOL_BAR_CONTROL_LABEL; i < TOOL_BAR_CONTROL_MAX; i++)
+	{
+		if (m_ControlsToolBar->GetToolToggled(i))
+		{
+			select = i;
+
+			break;
+		}
+	}
+
+	uiWindow* parent_win = m_CanvasWindow->GetSubOrMainWindow();
+	if (parent_win == nullptr) parent_win = m_ActiveRootWindow;
+
+	if (parent_win && select >= 0)
+	{
+		if (select == TOOL_BAR_CONTROL_LABEL)
+		{
+			m_CanvasWindow->SetTargetInfoIcon(wxBITMAP_PNG(LABEL_ICON));
+		}
+		else if (select == TOOL_BAR_CONTROL_IMAGE)
+		{
+			m_CanvasWindow->SetTargetInfoIcon(wxBITMAP_PNG(IMAGES_ICON));
+		}
+		else if (select == TOOL_BAR_CONTROL_LIST)
+		{
+			m_CanvasWindow->SetTargetInfoIcon(wxArtProvider::GetBitmap(wxART_FOLDER, wxART_OTHER, FromDIP(wxSize(16,16))));
+		}
+		else if (select == TOOL_BAR_CONTROL_LINE_CHART)
+		{
+			m_CanvasWindow->SetTargetInfoIcon(wxBITMAP_PNG(LINECHART_ICON));
+		}
+		else if (select == TOOL_BAR_CONTROL_PROMPT)
+		{
+			m_CanvasWindow->SetTargetInfoIcon(wxArtProvider::GetBitmap(wxART_FOLDER, wxART_OTHER, FromDIP(wxSize(16,16))));
+		}
+		else if (select == TOOL_BAR_CONTROL_MESSAGE_BOX)
+		{
+			m_CanvasWindow->SetTargetInfoIcon(wxArtProvider::GetBitmap(wxART_FOLDER, wxART_OTHER, FromDIP(wxSize(16,16))));
+		}
+		else if (select == TOOL_BAR_CONTROL_TEXT_FIELD)
+		{
+			m_CanvasWindow->SetTargetInfoIcon(wxArtProvider::GetBitmap(wxART_FOLDER, wxART_OTHER, FromDIP(wxSize(16,16))));
+		}
+		else if (select == TOOL_BAR_CONTROL_EDIT)
+		{
+			m_CanvasWindow->SetTargetInfoIcon(wxArtProvider::GetBitmap(wxART_FOLDER, wxART_OTHER, FromDIP(wxSize(16,16))));
+		}
+		else if (select == TOOL_BAR_CONTROL_EDIT_ITEM)
+		{
+			m_CanvasWindow->SetTargetInfoIcon(wxArtProvider::GetBitmap(wxART_FOLDER, wxART_OTHER, FromDIP(wxSize(16,16))));
+		}
+		else if (select == TOOL_BAR_CONTROL_MENU)
+		{
+			m_CanvasWindow->SetTargetInfoIcon(wxArtProvider::GetBitmap(wxART_FOLDER, wxART_OTHER, FromDIP(wxSize(16,16))));
+		}
+		else if (select == TOOL_BAR_CONTROL_MENU_ITEM)
+		{
+			m_CanvasWindow->SetTargetInfoIcon(wxArtProvider::GetBitmap(wxART_FOLDER, wxART_OTHER, FromDIP(wxSize(16,16))));
+		}
+		else if (select == TOOL_BAR_CONTROL_LIST_SIZER)
+		{
+			m_CanvasWindow->SetTargetInfoIcon(wxArtProvider::GetBitmap(wxART_FOLDER, wxART_OTHER, FromDIP(wxSize(16,16))));
+		}
+		else if (select == TOOL_BAR_CONTROL_BOX_SIZER)
+		{
+			m_CanvasWindow->SetTargetInfoIcon(wxArtProvider::GetBitmap(wxART_FOLDER, wxART_OTHER, FromDIP(wxSize(16,16))));
+		}
+	}
 
     m_CanvasWindow->InsertByPointing();
 }
